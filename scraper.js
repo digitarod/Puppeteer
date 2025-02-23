@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
     });
 
     const page = await browser.newPage();
-    await page.goto('https://example.com'); // スクレイピング対象のURL
+    await page.goto('https://news.yahoo.co.jp/pickup/6530325'); // スクレイピング対象のURL
 
     const title = await page.title();
     console.log(`Page title: ${title}`);
