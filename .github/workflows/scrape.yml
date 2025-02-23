@@ -1,0 +1,25 @@
+name: Scrape Website
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # 毎日12:00 UTCに実行
+  workflow_dispatch: # 手動実行も可能にする
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install puppeteer
+
+      - name: Run Puppeteer script
+        run: node scraper.js
